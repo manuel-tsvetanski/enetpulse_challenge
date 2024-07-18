@@ -13,7 +13,6 @@ class UserController extends Controller
             'username' => 'Test 5',
             'logins' => [
                 ['datetime' => '2023-12-21 18:29'],
-                // Add more login datetimes if needed
             ],
         ],
         [
@@ -21,7 +20,6 @@ class UserController extends Controller
             'username' => 'Test 4',
             'logins' => [
                 ['datetime' => '2023-12-21 18:27'],
-                // Add more login datetimes if needed
             ],
         ],
         [
@@ -29,7 +27,6 @@ class UserController extends Controller
             'username' => 'Test 42',
             'logins' => [
                 ['datetime' => '2023-12-21 18:24'],
-                // Add more login datetimes if needed
             ],
         ],
         [
@@ -37,7 +34,6 @@ class UserController extends Controller
             'username' => 'Test 22',
             'logins' => [
                 ['datetime' => '2023-12-21 18:20'],
-                // Add more login datetimes if needed
             ],
         ],
         [
@@ -45,7 +41,6 @@ class UserController extends Controller
             'username' => 'Test 829',
             'logins' => [
                 ['datetime' => '2023-12-21 18:15'],
-                // Add more login datetimes if needed
             ],
         ],
         [
@@ -53,7 +48,6 @@ class UserController extends Controller
             'username' => 'Test 15',
             'logins' => [
                 ['datetime' => '2023-12-21 18:09'],
-                // Add more login datetimes if needed
             ],
         ],
         [
@@ -61,7 +55,6 @@ class UserController extends Controller
             'username' => 'Test 14',
             'logins' => [
                 ['datetime' => '2023-12-21 18:02'],
-                // Add more login datetimes if needed
             ],
         ],
         [
@@ -69,7 +62,6 @@ class UserController extends Controller
             'username' => 'Test 142',
             'logins' => [
                 ['datetime' => '2023-12-21 17:54'],
-                // Add more login datetimes if needed
             ],
         ],
         [
@@ -77,7 +69,6 @@ class UserController extends Controller
             'username' => 'Test 122',
             'logins' => [
                 ['datetime' => '2023-12-21 17:45'],
-                // Add more login datetimes if needed
             ],
         ],
         [
@@ -85,7 +76,6 @@ class UserController extends Controller
             'username' => 'Test 1829',
             'logins' => [
                 ['datetime' => '2023-12-21 17:35'],
-                // Add more login datetimes if needed
             ],
         ],
     ];
