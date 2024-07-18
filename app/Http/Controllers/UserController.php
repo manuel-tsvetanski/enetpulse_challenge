@@ -9,8 +9,8 @@ class UserController extends Controller
 {
     private $users = [
         [
-            'user_id' => 1,
-            'name' => 'Alice',
+            'id' => 1,
+            'username' => 'Alice',
             'logins' => [
                 ['datetime' => '2024-07-17T15:24:00'],
                 ['datetime' => '2024-07-16T14:23:00'],
@@ -18,14 +18,13 @@ class UserController extends Controller
             ],
         ],
         [
-            'user_id' => 2,
-            'name' => 'Bob',
+            'id' => 2,
+            'username' => 'Bob',
             'logins' => [
                 ['datetime' => '2024-07-17T16:24:00'],
                 ['datetime' => '2024-07-15T12:22:00'],
             ],
-        ],
-        // Add more users as needed
+        ]
     ];
 
     private function getLastLogin($user)
@@ -40,14 +39,14 @@ class UserController extends Controller
         $userData = collect($this->users)->map(function ($user) {
             $lastLogin = $this->getLastLogin($user);
             return [
-                'user_id' => $user['user_id'],
-                'name' => $user['name'],
-                'last_login' => $lastLogin->toIso8601String(),
-                'total_logins' => count($user['logins']),
+                'id' => $user['id'],
+                'username' => $user['username'],
+                'lastLoginAt' => $lastLogin->format('Y-m-d H:i'),
+                'totalLogins' => count($user['logins']),
             ];
         });
 
-        $sortedUsers = $userData->sortByDesc('last_login')->take(10)->values();
+        $sortedUsers = $userData->sortByDesc('lastLoginAt')->take(10)->values();
 
         return response()->json($sortedUsers);
     }
