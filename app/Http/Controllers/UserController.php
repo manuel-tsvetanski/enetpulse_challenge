@@ -9,23 +9,75 @@ class UserController extends Controller
 {
     private $users = [
         [
-            'user_id' => 1,
-            'name' => 'Alice',
+            'id' => 5,
+            'username' => 'Test 5',
             'logins' => [
-                ['datetime' => '2024-07-17T15:24:00'],
-                ['datetime' => '2024-07-16T14:23:00'],
-                ['datetime' => '2024-07-15T13:22:00'],
+                ['datetime' => '2023-12-21 18:29'],
             ],
         ],
         [
-            'user_id' => 2,
-            'name' => 'Bob',
+            'id' => 4,
+            'username' => 'Test 4',
             'logins' => [
-                ['datetime' => '2024-07-17T16:24:00'],
-                ['datetime' => '2024-07-15T12:22:00'],
+                ['datetime' => '2023-12-21 18:27'],
             ],
         ],
-        // Add more users as needed
+        [
+            'id' => 42,
+            'username' => 'Test 42',
+            'logins' => [
+                ['datetime' => '2023-12-21 18:24'],
+            ],
+        ],
+        [
+            'id' => 22,
+            'username' => 'Test 22',
+            'logins' => [
+                ['datetime' => '2023-12-21 18:20'],
+            ],
+        ],
+        [
+            'id' => 829,
+            'username' => 'Test 829',
+            'logins' => [
+                ['datetime' => '2023-12-21 18:15'],
+            ],
+        ],
+        [
+            'id' => 15,
+            'username' => 'Test 15',
+            'logins' => [
+                ['datetime' => '2023-12-21 18:09'],
+            ],
+        ],
+        [
+            'id' => 14,
+            'username' => 'Test 14',
+            'logins' => [
+                ['datetime' => '2023-12-21 18:02'],
+            ],
+        ],
+        [
+            'id' => 142,
+            'username' => 'Test 142',
+            'logins' => [
+                ['datetime' => '2023-12-21 17:54'],
+            ],
+        ],
+        [
+            'id' => 122,
+            'username' => 'Test 122',
+            'logins' => [
+                ['datetime' => '2023-12-21 17:45'],
+            ],
+        ],
+        [
+            'id' => 1829,
+            'username' => 'Test 1829',
+            'logins' => [
+                ['datetime' => '2023-12-21 17:35'],
+            ],
+        ],
     ];
 
     private function getLastLogin($user)
@@ -40,14 +92,14 @@ class UserController extends Controller
         $userData = collect($this->users)->map(function ($user) {
             $lastLogin = $this->getLastLogin($user);
             return [
-                'user_id' => $user['user_id'],
-                'name' => $user['name'],
-                'last_login' => $lastLogin->toIso8601String(),
-                'total_logins' => count($user['logins']),
+                'id' => $user['id'],
+                'username' => $user['username'],
+                'lastLoginAt' => $lastLogin->format('Y-m-d H:i'),
+                'totalLogins' => count($user['logins']),
             ];
         });
 
-        $sortedUsers = $userData->sortByDesc('last_login')->take(10)->values();
+        $sortedUsers = $userData->sortByDesc('lastLoginAt')->take(10)->values();
 
         return response()->json($sortedUsers);
     }
